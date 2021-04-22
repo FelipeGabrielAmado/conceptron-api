@@ -25,7 +25,7 @@ const createProjeto = async (req, res) => {
   const {
     tx_nome,
     dt_modificacao,
-    nr_comadas,
+    nr_camadas,
     nr_entrada,
     nr_escondida,
     nr_saida,
@@ -33,11 +33,11 @@ const createProjeto = async (req, res) => {
     fl_softmax,
   } = req.body;
   const response = await pool.query(
-    "INSERT INTO projetos (tx_nome, dt_modificacao, nr_comadas, nr_entrada, nr_escondida, nr_saida, nr_funcaoativacao, fl_softmax) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+    "INSERT INTO projetos (tx_nome, dt_modificacao, nr_camadas, nr_entrada, nr_escondida, nr_saida, nr_funcaoativacao, fl_softmax) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
     [
       tx_nome,
       dt_modificacao,
-      nr_comadas,
+      nr_camadas,
       nr_entrada,
       nr_escondida,
       nr_saida,
@@ -52,7 +52,7 @@ const createProjeto = async (req, res) => {
       movies: {
         tx_nome,
         dt_modificacao,
-        nr_comadas,
+        nr_camadas,
         nr_entrada,
         nr_escondida,
         nr_saida,
