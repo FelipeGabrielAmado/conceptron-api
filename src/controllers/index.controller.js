@@ -9,7 +9,7 @@ const pool = new Pool({
 });
 
 const getProjetos = async (req, res) => {
-  const response = await pool.query("SELECT * FROM projetos ORDER BY id ASC");
+  const response = await pool.query("SELECT * FROM projetos ORDER BY id DESC");
   res.status(200).json(response.rows);
 };
 
