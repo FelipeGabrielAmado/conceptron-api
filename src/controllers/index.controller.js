@@ -7,6 +7,8 @@ const pool = new Pool({
   }
 });
 
+console.log(process.env.DATABASE_URL);
+
 const getProjetos = async (req, res) => {
   const response = await pool.query("SELECT * FROM projetos ORDER BY id DESC");
   res.status(200).json(response.rows);
