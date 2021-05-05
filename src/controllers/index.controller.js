@@ -1,10 +1,11 @@
 const { Pool } = require("pg");
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
+  host: "localhost",
+  user: "postgres",
+  password: "123",
+  database: "conceptron",
+  port: "5432",
 });
 
 const getProjetos = async (req, res) => {
