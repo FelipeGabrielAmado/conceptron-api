@@ -1,10 +1,11 @@
 const { Pool } = require("pg");
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
+  connectionLimit: 10,
+  host: "ec2-184-73-198-174.compute-1.amazonaws.com",
+  user: "oivavnbnclckgs",
+  password: "e6bf83b76480084b5156d32ead06d6cd9edf68e38b1ceba62512e45c4b2460e3",
+  database: "d2imv1kl929p21",
 });
 
 console.log(process.env.DATABASE_URL);
@@ -76,14 +77,7 @@ const updateProjeto = async (req, res) => {
 
   const response = await pool.query(
     "UPDATE projetos SET nr_entrada = $1, nr_escondida = $2, nr_saida = $3, nr_funcaoativacao = $4, fl_softmax = $5 WHERE id = $6",
-    [
-      nr_entrada,
-      nr_escondida,
-      nr_saida,
-      nr_funcaoativacao,
-      fl_softmax,
-      id,
-    ]
+    [nr_entrada, nr_escondida, nr_saida, nr_funcaoativacao, fl_softmax, id]
   );
   res.json("Projeto Alterado com Sucesso");
 };
