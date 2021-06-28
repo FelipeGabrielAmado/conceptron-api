@@ -66,6 +66,7 @@ const createProjeto = async (req, res) => {
 const updateProjeto = async (req, res) => {
   const id = parseInt(req.params.id);
   const {
+    nr_camadas,
     nr_entrada,
     nr_escondida,
     nr_saida,
@@ -74,8 +75,9 @@ const updateProjeto = async (req, res) => {
   } = req.body;
 
   const response = await pool.query(
-    "UPDATE projetos SET nr_entrada = $1, nr_escondida = $2, nr_saida = $3, nr_funcaoativacao = $4, fl_softmax = $5 WHERE id = $6",
+    "UPDATE projetos SET nr_camadas = $1, nr_entrada = $2, nr_escondida = $3, nr_saida = $4, nr_funcaoativacao = $5, fl_softmax = $6 WHERE id = $7",
     [
+      nr_camadas,
       nr_entrada,
       nr_escondida,
       nr_saida,
